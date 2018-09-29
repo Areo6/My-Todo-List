@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.com/Eubule/My-Todo-List.svg?branch=master)](https://travis-ci.com/Eubule/My-Todo-List)
+[![Coverage Status](https://coveralls.io/repos/github/Eubule/My-Todo-List/badge.svg?branch=master)](https://coveralls.io/github/Eubule/My-Todo-List?branch=master)
+
 ## DESCRIPTION
 
 Todo-List is a platform where people can add and manage their todo list
