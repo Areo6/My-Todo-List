@@ -4,7 +4,7 @@ Todo-List is a platform where people can add and manage their todo list
 
 ## Link to Todo-List on Github Pages
 
-[Stackoverflow-lite](https://eubule.github.io/My-To-do-App/)
+[To-do List App](https://eubule.github.io/My-To-do-App/)
 
 
 ## Routes captured by Todo-List
