@@ -13,7 +13,7 @@ def register():
     """
     data = request.json
     if not data:
-        return jsonify({"Message": "Bad request. Your input shoukd be a dictionary"}), 400
+        return jsonify({"Message": "Bad request. Your input should be a dictionary"}), 400
     if not 'name' in data or not 'email' in data or not 'password' in data:
         return jsonify({"Message": "Bad format. Please specify user Name, Email and Password"}), 400
     if len(data) > 3:
@@ -30,11 +30,11 @@ def login():
     """
     data = request.json
     if not data:
-        return jsonify({"Message": "Bad request. Your input shoukd be a dictionary"}), 400
+        return jsonify({"Message": "Bad request. Your input should be a dictionary"}), 400
     if not "email" in data or not "password" in data:
-        return jsonify({"Message": "Bad format. Please specify user Name, Email and Password"}), 400
+        return jsonify({"Message": "Bad format. Please specify user Email and Password"}), 400
     if len(data) > 2:
-        return jsonify({"Message": "Too many arguments. Only Name, Email and Password are required"}), 414
+        return jsonify({"Message": "Too many arguments. Only Email and Password are required"}), 414
     login = user.login(data['email'], data['password'])
     if login != "You have successfully logged in":
         return jsonify({"Message": login}), 403
@@ -43,7 +43,7 @@ def login():
 @mod.route("/api/tasks", methods = ["GET"])
 def get_tasks():
     """
-    This endpoint is userd to View alls the tasks
+    This endpoint is used to View alls the tasks
     """
     item = task.view_tasks()
     return jsonify({"Message": item}), 200
@@ -55,7 +55,7 @@ def post_task():
     """
     data = request.json
     if not data:
-        return jsonify({"Message": "Bad request. Your input shoukd be a dictionary"}), 400
+        return jsonify({"Message": "Bad request. Your input should be a dictionary"}), 400
     if not "task" in data:
         return jsonify({"Message": "Bad format. Please specify Task"}), 400
     if len(data) > 1:
@@ -65,7 +65,7 @@ def post_task():
         return jsonify({"Message": item}), 417
     return jsonify({"Message": item}), 201
 
-@mod.route("/api/tasks/<task_id>", methods = ["DELETE"])
+@mod.route("/api/tasks/<int:task_id>", methods = ["DELETE"])
 def delete_task(task_id):
     """
     This endpoint is used to delete a task from the datastructure
@@ -77,8 +77,8 @@ def delete_task(task_id):
         return jsonify({"Message": item}), 417
     return jsonify({"Message": item}), 202
 
-@mod.route("/api/tasks/<task_id>", methods = ["UPDATE"])
-def Mark_tasj_as_finished(task_id):
+@mod.route("/api/tasks/<int:task_id>", methods = ["PUT"])
+def Mark_task_as_finished(task_id):
     """
     This endpoint updates a task by marking it as finished
     """
@@ -89,7 +89,7 @@ def Mark_tasj_as_finished(task_id):
         return jsonify({"Message": item}), 417
     return jsonify({"Message": item}), 200
 
-@route("/api/tasks", methods = ["DELETE"])
+@mod.route("/api/tasks", methods = ["DELETE"])
 def delete_all_tasks():
     """
     This endpoint deletes all the tasks from the the datastructure

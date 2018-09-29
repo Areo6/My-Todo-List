@@ -19,9 +19,11 @@ def is_valid_email(email):
     """
     This function checks the validity of email.
     """
+    if not isinstance(email, str):
+        return "Bad input. Name should be a string"
     is_valid = re.search(r"[\w-]+@[\w-]+\.+", email)
     if not is_valid:
-        return "Invalid email. Email should be of format 'john12@gmail.com'"
+        return "Invalid email. Email should be of format john12@gmail.com"
     else:
         return "Valid 2"
 

@@ -91,7 +91,7 @@ class Tasks():
         This function append the string [finished] at the end of a task if finished
         """
         if not isinstance(id, int):
-            return Task id must be an integer"
+            return "Task id must be an integer"
         if len(todo_list) == 0:
             return "Empty Todo List. No tasks yet"
         todo_item = [x for x in todo_list if x["id"] == id]
